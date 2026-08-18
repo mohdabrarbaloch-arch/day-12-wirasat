@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Env & secrets
+.env
+.env.local
+
+# Databases
+*.db
+*.db-wal
+*.db-shm
+
+# Node (if you run the SPA with a bundler)
+node_modules/
+dist/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
