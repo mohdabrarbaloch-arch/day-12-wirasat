@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Wirasat — Islamic inheritance (Faraid) calculator. Exact Quranic shares with awl, radd and asabah rules." />
+  <meta name="theme-color" content="#0b3d2e" />
+  <title>Wirasat — Faraid Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕌</text></svg>" />
+</head>
+<body>
+  <div class="pattern-bg" aria-hidden="true"></div>
+
+  <section id="auth-view" class="view auth-view">
+    <div class="auth-card">
+      <div class="brand">
+        <div class="brand-icon">🕌</div>
+        <h1>Wirasat <span class="urdu">وراثت</span></h1>
+        <p class="tagline">Faraid Inheritance Calculator</p>
+      </div>
+      <div class="tabs">
+        <button class="tab active" data-tab="login">Login</button>
+        <button class="tab" data-tab="register">Register</button>
+      </div>
+      <form id="auth-form" autocomplete="on">
+        <div class="field" id="name-field" hidden>
+          <label for="full-name">Full name</label>
+          <input id="full-name" type="text" placeholder="e.g. Ahmed Raza" maxlength="120" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" required placeholder="you@example.com" />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" required minlength="8" placeholder="Min 8 characters" />
+        </div>
+        <p id="auth-error" class="error-msg" hidden></p>
+        <button type="submit" id="auth-submit" class="btn btn-primary btn-block">Login</button>
+      </form>
+      <p class="disclaimer">Demo-ready: create any account, data stays private.</p>
+    </div>
+  </section>
+
+  <section id="app-view" class="view app-view" hidden>
+    <header class="topbar">
+      <div class="brand-mini">
+        <span class="brand-icon small">🕌</span>
+        <span class="brand-name">Wirasat <span class="urdu">وراثت</span></span>
+      </div>
+      <div class="top-actions">
+        <button id="btn-history" class="icon-btn" title="History">📜</button>
+        <button id="btn-logout" class="icon-btn" title="Logout">🚪</button>
+      </div>
+    </header>
+
+    <main id="calc-view" class="content">
+      <div class="card intro-card">
+        <h2>Divide the estate by Allah's law</h2>
+        <p>Select the deceased's heirs below. Wirasat computes the exact Quranic shares — including <em>awl</em>, <em>radd</em> and <em>asabah</em> — with every exclusion rule applied.</p>
+      </div>
+      <div class="card">
+        <div class="field-row">
+          <div class="field grow">
+            <label for="estate-value">Estate value (Rs)</label>
+            <input id="estate-value" type="number" min="0" step="0.01" placeholder="0 (fraction-only)" />
+          </div>
+          <div class="field">
+            <label>Deceased</label>
+            <select id="deceased-gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+        </div>
+        <label class="group-label">Select heirs <span class="hint">tap to add / remove</span></label>
+        <div id="heir-grid" class="heir-grid"></div>
+        <div id="calc-error" class="error-msg" hidden></div>
+        <button id="btn-calculate" class="btn btn-primary btn-block btn-lg">Calculate Shares</button>
+      </div>
+      <div id="results" hidden>
+        <div class="card result-card">
+          <div class="result-head">
+            <h3>Distribution</h3>
+            <span id="mode-badge" class="badge">normal</span>
+          </div>
+          <div id="notes-box" class="notes-box" hidden></div>
+          <div id="result-list" class="result-list"></div>
+          <div id="total-row" class="total-row"></div>
+          <div class="result-actions">
+            <button id="btn-print" class="btn btn-ghost">🖨️ Print / Share</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <main id="history-view" class="content" hidden>
+      <div class="card">
+        <div class="result-head">
+          <h3>Calculation History</h3>
+          <button id="btn-back-calc" class="btn btn-ghost">← Calculator</button>
+        </div>
+        <div id="history-list" class="history-list"></div>
+      </div>
+    </main>
+  </section>
+
+  <div id="print-view" hidden></div>
+  <div id="toast" class="toast" hidden></div>
+  <script src="/js/app.js"></script>
+</body>
+</html>
