@@ -13,8 +13,8 @@ No floating-point rounding in the share math — the engine works in exact
 fractions (`fractions.Fraction`), so every paisa of the estate is accounted
 for.
 
-![Wirasat login](screenshots/wirasat_login.png)
-![Wirasat results](screenshots/wirasat_results.png)
+![Wirasat login](https://static.teamily.ai/sites/a2ed58ed-8717-4660-9349-35beace0433c/documents/wirasat_login/wirasat_login.png)
+![Wirasat results](https://static.teamily.ai/sites/a2ed58ed-8717-4660-9349-35beace0433c/documents/wirasat_results/wirasat_results.png)
 
 ## ✨ Features
 
